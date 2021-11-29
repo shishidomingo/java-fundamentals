@@ -22,7 +22,17 @@ public class Exercise_07 {
         System.out.println("Enter a word: ");
         String input = scanner.next();
 
-        
+        int length = input.length();
+        int i = 0;
+        String vowels = "aeiou";
+
+        System.out.println("The word is " + input);
+
+        while (i < length){
+            if (input.charAt(i) == vowels.charAt(0)){
+                System.out.println("The first vowel is " + vowels.charAt(0));
+            }
+        }
 
 
     }
