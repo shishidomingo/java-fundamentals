@@ -22,18 +22,32 @@ public class Exercise_07 {
         System.out.println("Enter a word: ");
         String input = scanner.next();
 
-        int length = input.length();
-        int i = 0;
-        String vowels = "aeiou";
+        int firstVowelIndex = firstVowelIndex(input);
 
         System.out.println("The word is " + input);
-
-        while (i < length){
-            if (input.charAt(i) == vowels.charAt(0)){
-                System.out.println("The first vowel is " + vowels.charAt(0));
-            }
+        if (firstVowelIndex > -1) {
+            char firstVowel = input.charAt(firstVowelIndex);
+            System.out.println("The first vowel is " + firstVowel);
+        }
+        else {
+            System.out.println("There are no vowels.");
         }
 
 
+
+
+    }
+
+    public static int firstVowelIndex(String input){
+        String vowels = "aeiou";
+
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = 0; j < vowels.length(); j++) {
+                if (input.charAt(i) == vowels.charAt(j)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }
