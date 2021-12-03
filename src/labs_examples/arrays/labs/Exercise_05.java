@@ -10,4 +10,14 @@ package labs_examples.arrays.labs;
 
 public class Exercise_05 {
 
+    public static void main(String[] args) {
+
+        int[] myArray = {12, 24, 36, 48, 60, 72, 84};
+
+        for (int i = myArray.length; i > 0; i = i-2){
+            System.out.println(myArray[i-1]);
+
+        }
+    }
+
 }

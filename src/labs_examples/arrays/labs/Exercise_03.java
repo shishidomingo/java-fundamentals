@@ -18,6 +18,16 @@ package labs_examples.arrays.labs;
 public class Exercise_03 {
 
     public static void main(String[] args) {
-        
+        int [][] fiveByFive = new int [5][5];
+        int output = 3;
+        for (int i = 0; i < 5; i++){
+
+            for (int j = 0; j < 5; j++) {
+                fiveByFive[i][j] = output;
+                output += 3;
+                System.out.print(fiveByFive[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
