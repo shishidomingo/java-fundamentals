@@ -18,6 +18,10 @@ public class Exercise_07 {
         ArrayList<Integer> myList = new ArrayList<Integer>();
         Scanner scanner = new Scanner(System.in);
 
+        if (myList.isEmpty()) {
+            System.out.println("the ArrayList is Empty");
+        };
+
         System.out.println("How long would you like your ArrayList to be?");
         int length = scanner.nextInt();
         System.out.println("Generating your " + length + " element ArrayList now.");
@@ -27,6 +31,9 @@ public class Exercise_07 {
             myList.add(i*6);
             System.out.println(myList.get(i));
         };
+
+        System.out.println("The ArrayList length is: " + myList.size());
+
 
 
 
