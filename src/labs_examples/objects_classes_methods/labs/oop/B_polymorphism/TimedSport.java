@@ -1,6 +1,6 @@
 package labs_examples.objects_classes_methods.labs.oop.B_polymorphism;
 
-public class TimedSport {
+public class TimedSport implements Sport{
 
     protected double secsElapsed;
     protected double finalTime;
