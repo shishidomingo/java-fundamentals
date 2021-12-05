@@ -1,6 +1,7 @@
 
-Without running the code below, please tell me what it will print.
-
+// Without running the code below, please tell me what it will print.
+// this will print "Child called" to the console.  unlike parent constructors, parent methods are not automatically
+// called when a child method is called.
 
 
 public class InheritanceTest

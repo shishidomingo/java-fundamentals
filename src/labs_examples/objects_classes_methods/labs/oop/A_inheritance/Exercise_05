@@ -1,7 +1,11 @@
 
-Without running the code below, please tell me what will print. Why?
+//Without running the code below, please tell me what will print. Why?
 
-
+// this will print
+// "Parent called"
+// "Child called"
+// this is because the souts are located in the constructors in the parent and child class.  when a child constructor
+// is invoked, it first invokes and executes all parent constructors in order of highest to lowest hierarchy.
 
 
 public class InheritanceTest
