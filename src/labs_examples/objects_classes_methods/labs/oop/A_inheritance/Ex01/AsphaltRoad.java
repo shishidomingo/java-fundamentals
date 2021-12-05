@@ -11,4 +11,17 @@ public class AsphaltRoad extends AsphaltTrack{
         this.highestElevation = highestElevation;
     }
 
+    @Override
+    public String toString() {
+        return "AsphaltRoad{" +
+                "highestElevation=" + highestElevation +
+                ", lowestElevation=" + lowestElevation +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", leftTurns=" + leftTurns +
+                ", rightTurns=" + rightTurns +
+                ", isClockwise=" + isClockwise +
+                ", lapRecord=" + lapRecord +
+                '}';
+    }
 }

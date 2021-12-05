@@ -4,7 +4,7 @@ public class DirtRoadRallyStage extends DirtRoadRally{
 
     double distance;
 
-    public DirtRoadRallyStage(String name, String location, int leftTurns, int rightTurns, boolean isClockwise, double lapRecord, double highestElevation, double lowestElevation, String surface, String isManMadeCourse, double distance) {
+    public DirtRoadRallyStage(String name, String location, int leftTurns, int rightTurns, boolean isClockwise, double lapRecord, double highestElevation, double lowestElevation, String surface, boolean isManMadeCourse, double distance) {
         super(name, location, leftTurns, rightTurns, isClockwise, lapRecord, highestElevation, lowestElevation, surface, isManMadeCourse);
         this.distance = distance;
     }

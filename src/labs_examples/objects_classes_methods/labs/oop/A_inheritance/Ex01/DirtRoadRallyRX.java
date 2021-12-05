@@ -5,7 +5,7 @@ public class DirtRoadRallyRX extends DirtRoadRally{
     int jokerLaps;
     int jumps;
 
-    public DirtRoadRallyRX(String name, String location, int leftTurns, int rightTurns, boolean isClockwise, double lapRecord, double highestElevation, double lowestElevation, String surface, String isManMadeCourse, int jokerLaps, int jumps) {
+    public DirtRoadRallyRX(String name, String location, int leftTurns, int rightTurns, boolean isClockwise, double lapRecord, double highestElevation, double lowestElevation, String surface, boolean isManMadeCourse, int jokerLaps, int jumps) {
         super(name, location, leftTurns, rightTurns, isClockwise, lapRecord, highestElevation, lowestElevation, surface, isManMadeCourse);
         this.jokerLaps = jokerLaps;
         this.jumps = jumps;

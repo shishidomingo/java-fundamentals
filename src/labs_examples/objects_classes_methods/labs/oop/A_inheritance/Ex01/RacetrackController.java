@@ -11,7 +11,12 @@ public class RacetrackController {
         DirtRoadRallyRX charlotte = new DirtRoadRallyRX("charlotte", "concord", 2, 5, true, 34.5, 708, 703, "clay", true, 1, 1);
         DirtRoadRallyStage olympusStageOne = new DirtRoadRallyStage("olympus rally ss 1", "deckerville", 26, 18, false, 446.5, 163, 78, "mixed dirt", false, 11.8);
 
-
+        System.out.println(phoenix.toString());
+        System.out.println(bristol.toString());
+        System.out.println(lagunaSeca.toString());
+        System.out.println(eldora.toString());
+        System.out.println(charlotte.toString());
+        System.out.println(olympusStageOne.toString());
 
     }
 }
