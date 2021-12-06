@@ -5,33 +5,16 @@ public class Player {
     Hand hand;
     int potValue;
 
-    public Player(String name, Hand hand, int potValue) {
+    public Player(String name, int potValue){
         this.name = name;
-        this.hand = hand;
         this.potValue = potValue;
     }
 
-    public String getName() {
-        return name;
+    public boolean computerAI(Player player){
+        if (player.hand.getScore(player) < 16){
+            return true;
+        }
+        else {return false;}
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Hand getHand() {
-        return hand;
-    }
-
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public int getPotValue() {
-        return potValue;
-    }
-
-    public void setPotValue(int potValue) {
-        this.potValue = potValue;
-    }
 }

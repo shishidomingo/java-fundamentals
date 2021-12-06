@@ -1,6 +1,7 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack.ex01;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Deck {
 
@@ -8,31 +9,28 @@ public class Deck {
     protected ArrayList<Integer> usedCards;
 
     public Deck() {
-        this.cards = fillDeck();
-        this.usedCards = usedCards;
+        cards = createNewDeck();
     }
 
-    public Card[] fillDeck(){
+    public Card[] createNewDeck(){
         Card[] newDeck = new Card[52];
-        for (int i = 0; i < 52; i++){
-            newDeck[i] = new Card(((i+4)/4), i);
-                }
+
+        for (int i = 0; i < newDeck.length; i++){
+            newDeck[i] = new Card(i+1);
+        }
         return newDeck;
     }
 
-    public ArrayList<Integer> getUsedCards() {
-        return usedCards;
-    }
-
-    public void setUsedCards(int cardPos) {
-        usedCards.add(cardPos);
-    }
-
-    @Override
-    public String toString() {
-        return "Deck{" +
-                "cards=" + Arrays.toString(cards) +
-                ", usedCards=" + usedCards +
-                '}';
+    public void deal(Player player){
+        Random rand = new Random(51);
+        int nextRandom = rand.nextInt();
+        for (int i = 0; i < usedCards.size(); i++){
+            if (nextRandom != usedCards.get(i)){
+                Card newCard = new Card(nextRandom + 1);
+                player.hand.addCard(newCard);
+                usedCards.add(newCard.cardIndex);
+                break;
+            }
+        }
     }
 }

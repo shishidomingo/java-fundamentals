@@ -2,28 +2,26 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack.ex01;
 
 public class Card {
 
-    static char[] suit = new char[]{'♠', '♦', '♥', '♣'};
-    int cardValue;
-    int cardPos;
+    protected char[] suit = new char[]{'♠', '♦', '♥', '♣'};
+    protected int cardValue;
+    protected int cardIndex;
 
-    public Card(int cardValue, int cardPos) {
-        this.cardValue = cardValue;
-        this.cardPos = cardPos;
+    public Card(int cardIndex) {
+        this.cardIndex = cardIndex;
     }
 
-    public int getCardValue() {
+    public int getCardValue(Card card){
+        int cardIndexDivided = ((card.cardIndex) + 4) / 4;
+        if (cardIndexDivided > 10){
+            cardValue = 10;
+        }
         return cardValue;
     }
 
-    public void setCardValue(int cardValue) {
-        this.cardValue = cardValue;
+    public char getSuit(Card card){
+        int cardSuitCounter = card.cardIndex % 4;
+        char cardSuit = suit[cardSuitCounter];
+        return cardSuit;
     }
 
-    public int getCardPos() {
-        return cardPos;
-    }
-
-    public void setCardPos(int cardPos) {
-        this.cardPos = cardPos;
-    }
 }
