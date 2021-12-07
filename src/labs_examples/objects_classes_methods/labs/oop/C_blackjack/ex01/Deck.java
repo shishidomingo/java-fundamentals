@@ -1,36 +1,42 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack.ex01;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Deck {
 
     protected Card[] cards;
-    protected ArrayList<Integer> usedCards;
+    protected int nextCard;
+    //ArrayList<Integer> usedcards;
 
-    public Deck() {
-        cards = createNewDeck();
+    Deck(){
+        cards = new Card[52];
+        cards = makeNewDeck(cards);
+        cards = shuffleDeck(cards);
+        nextCard = 0;
+    };
+
+    public Card[] makeNewDeck(Card[] cards){
+        //Card[] straightDeck = new Card[52];
+        for (int i = 0; i < 52; i++){
+            cards[i].cardValue = i+1;
+        }
+
+        return cards;
     }
 
-    public Card[] createNewDeck(){
-        Card[] newDeck = new Card[52];
-
-        for (int i = 0; i < newDeck.length; i++){
-            newDeck[i] = new Card(i+1);
+    public Card[] shuffleDeck(Card[] cards){
+        Random rand = new Random();
+        for (int i = cards.length -1; i > 0; i--){
+            int j = rand.nextInt(52);
+            Card holder = cards[j];
+            cards[j] = cards[i];
+            cards[i] = holder;
         }
-        return newDeck;
+        return cards;
     }
 
     public void deal(Player player){
-        Random rand = new Random(51);
-        int nextRandom = rand.nextInt();
-        for (int i = 0; i < usedCards.size(); i++){
-            if (nextRandom != usedCards.get(i)){
-                Card newCard = new Card(nextRandom + 1);
-                player.hand.addCard(newCard);
-                usedCards.add(newCard.cardIndex);
-                break;
-            }
-        }
+        player.hand.addCard(cards[nextCard]);
+        nextCard++;
     }
 }

@@ -5,16 +5,4 @@ public class Player {
     Hand hand;
     int potValue;
 
-    public Player(String name, int potValue){
-        this.name = name;
-        this.potValue = potValue;
-    }
-
-    public boolean computerAI(Player player){
-        if (player.hand.getScore(player) < 16){
-            return true;
-        }
-        else {return false;}
-    }
-
 }
