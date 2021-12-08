@@ -23,38 +23,55 @@ public class BlackjackController {
         deck.deal(computer, deck);
         deck.deal(computer, deck);
 
-        Player.printCards(player, deck);
-        System.out.println("another card? y/n");
-        char newCard = scanner.next().charAt(0);
-        while (newCard == 'y'){
-            deck.deal(player,deck);
+        do {
+            System.out.println("player balance: " + player.potValue);
+            System.out.println("computer balance: " + computer.potValue);
+            System.out.println("how much to bet? ");
+            int bet = scanner.nextInt();
+            player.potValue -= bet;
+            computer.potValue -= bet;
+            int pot = bet*2;
+
             Player.printCards(player, deck);
             System.out.println("another card? y/n");
-            newCard = scanner.next().charAt(0);
-        }
+            char newCard = scanner.next().charAt(0);
+            while (newCard == 'y') {
+                deck.deal(player, deck);
+                Player.printCards(player, deck);
+                System.out.println("another card? y/n");
+                newCard = scanner.next().charAt(0);
+            }
 
-        while (Player.computerAI(computer)){
-            deck.deal(computer, deck);
-            System.out.println("computer hits");
-        }
+            while (Player.computerAI(computer)) {
+                deck.deal(computer, deck);
+                System.out.println("computer hits");
+            }
 
-        Player.printCards(player, deck);
-        Player.printCards(computer, deck);
-        if (player.hand.handValue > 21){
-            System.out.println("player busts");
-        }
-        if (computer.hand.handValue > 21){
-            System.out.println("computer busts");
-        }
+            Player.printCards(player, deck);
+            Player.printCards(computer, deck);
+            if (player.hand.handValue > 21) {
+                System.out.println("player busts");
 
-        if (Hand.getHandValue(player.hand) > Hand.getHandValue(computer.hand) || Hand.getHandValue(computer.hand) > 21){
-            System.out.println("player wins");
-        }
-        else if (Hand.getHandValue(player.hand) < Hand.getHandValue(computer.hand) || Hand.getHandValue(player.hand) > 21){
-            System.out.println("computer wins");
-        }
-        else {
-            System.out.println("push");}
+            }
+            if (computer.hand.handValue > 21) {
+                System.out.println("computer busts");
+
+            }
+
+            if (Hand.getHandValue(player.hand) > Hand.getHandValue(computer.hand) || Hand.getHandValue(computer.hand) > 21) {
+                System.out.println("player wins");
+                player.potValue += bet*2;
+
+            } else if (Hand.getHandValue(player.hand) < Hand.getHandValue(computer.hand) || Hand.getHandValue(player.hand) > 21) {
+                System.out.println("computer wins");
+                computer.potValue += bet*2;
+            } else {
+                System.out.println("push");
+                player.potValue += bet;
+                computer.potValue += bet;
+            }
+
+        }while (computer.potValue > 0 && player.potValue > 0);
 
 
 
