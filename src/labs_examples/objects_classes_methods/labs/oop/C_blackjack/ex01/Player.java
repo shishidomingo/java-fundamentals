@@ -14,10 +14,21 @@ public class Player {
     public static void printCards(Player player, Deck deck){
         System.out.print(player.name + " hand: ");
         for (int i = 0; i < player.hand.cards.size(); i++){
-            System.out.print(player.hand.cards.get(i).cardValue + " ");
+            char suit = Card.getSuit(player.hand.cards.get(i));
+            char face = Card.getFace(player.hand.cards.get(i));
+            System.out.print(suit);
+            System.out.print(face);
+            System.out.print(' ');
         }
         System.out.println();
 
+    }
+
+    public static boolean computerAI(Player player){
+        if (Hand.getHandValue(player.hand) < 16){
+            return true;
+        }
+        return false;
     }
 
 }

@@ -24,6 +24,41 @@ public class BlackjackController {
         deck.deal(computer, deck);
 
         Player.printCards(player, deck);
+        System.out.println("another card? y/n");
+        char newCard = scanner.next().charAt(0);
+        while (newCard == 'y'){
+            deck.deal(player,deck);
+            Player.printCards(player, deck);
+            System.out.println("another card? y/n");
+            newCard = scanner.next().charAt(0);
+        }
 
+        while (Player.computerAI(computer)){
+            deck.deal(computer, deck);
+            System.out.println("computer hits");
+        }
+
+        Player.printCards(player, deck);
+        Player.printCards(computer, deck);
+        if (player.hand.handValue > 21){
+            System.out.println("player busts");
+        }
+        if (computer.hand.handValue > 21){
+            System.out.println("computer busts");
+        }
+
+        if (Hand.getHandValue(player.hand) > Hand.getHandValue(computer.hand) || Hand.getHandValue(computer.hand) > 21){
+            System.out.println("player wins");
+        }
+        else if (Hand.getHandValue(player.hand) < Hand.getHandValue(computer.hand) || Hand.getHandValue(player.hand) > 21){
+            System.out.println("computer wins");
+        }
+        else {
+            System.out.println("push");}
+
+
+
+
+        //Player.printCards(computer, deck);
     }
 }

@@ -13,10 +13,10 @@ public class Hand {
     public void addCard(Card card, Hand hand){hand.cards.add(card);
     }
 
-    public int getHandValue(Hand hand){
+    public static int getHandValue(Hand hand){
         int thisHandValue = 0;
         for (int i = 0; i < hand.cards.size(); i++){
-            thisHandValue += hand.cards.get(i).cardValue;
+            thisHandValue += Card.getCardValue(hand.cards.get(i));
         }
         return thisHandValue;
     }
