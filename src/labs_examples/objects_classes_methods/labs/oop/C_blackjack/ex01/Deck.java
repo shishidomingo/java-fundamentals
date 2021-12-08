@@ -10,6 +10,9 @@ public class Deck {
 
     Deck(){
         cards = new Card[52];
+        for (int w = 0; w < 52; w++){
+            cards[w] = new Card();
+        };
         cards = makeNewDeck(cards);
         cards = shuffleDeck(cards);
         nextCard = 0;
@@ -18,7 +21,7 @@ public class Deck {
     public Card[] makeNewDeck(Card[] cards){
         //Card[] straightDeck = new Card[52];
         for (int i = 0; i < 52; i++){
-            cards[i].cardValue = i+1;
+            cards[i].setCardValue(i+1);
         }
 
         return cards;
@@ -35,8 +38,10 @@ public class Deck {
         return cards;
     }
 
-    public void deal(Player player){
-        player.hand.addCard(cards[nextCard]);
-        nextCard++;
+    public void deal(Player player, Deck deck){
+        player.hand.addCard(deck.cards[nextCard], player.hand);
+        deck.nextCard++;
     }
+
+
 }
