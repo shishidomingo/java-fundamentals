@@ -61,17 +61,27 @@ public class BlackjackController {
             if (Hand.getHandValue(player.hand) > Hand.getHandValue(computer.hand) || Hand.getHandValue(computer.hand) > 21) {
                 System.out.println("player wins");
                 player.potValue += bet*2;
+                player.wins++;
 
             } else if (Hand.getHandValue(player.hand) < Hand.getHandValue(computer.hand) || Hand.getHandValue(player.hand) > 21) {
                 System.out.println("computer wins");
                 computer.potValue += bet*2;
+                computer.wins++;
             } else {
                 System.out.println("push");
                 player.potValue += bet;
                 computer.potValue += bet;
             }
 
+            Player.totalGames++;
+            System.out.println("total games played: " + Player.totalGames);
+            System.out.println(player.name + " wins: " + player.wins);
+            System.out.println(computer.name + " wins: " + computer.wins);
+
+
         }while (computer.potValue > 0 && player.potValue > 0);
+
+        System.out.println("game over.");
 
 
 

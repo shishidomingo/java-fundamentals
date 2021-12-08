@@ -4,11 +4,14 @@ public class Player {
     String name;
     Hand hand;
     int potValue;
+    static int totalGames;
+    int wins;
 
     Player(String playerName, int pot){
         name = playerName;
         potValue = pot;
         hand = new Hand();
+        wins = 0;
     }
 
     public static void printCards(Player player, Deck deck){
